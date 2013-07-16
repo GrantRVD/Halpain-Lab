@@ -1,0 +1,79 @@
+macro "NeuriteQuant2"{
+
+	
+	// If user wants to keep the settings they currently have, allow them
+	// to save a configuration file
+	function save_settings()
+	{
+		
+	}
+	
+	// Likewise, let users load previously created analysis settings
+	function load_settings()
+	{
+		
+	}
+	
+	// This is the top-level function calling all other parts of
+	// NeuriteQuants analysis. It follows from Figure 2 of 
+	// Dehmelt et al. (2011).
+	function Extract_features(image)
+	{
+		
+		open(image);
+		//Note: "(x)" means result from step x.
+	
+		// Step 1: Morphological opening of raw data
+		
+		// Step 2: Binarize (1)
+		// This yields the cell bodies
+		
+		// Step 3: Subtract (1) from original
+		
+		// Step 4: Binarize (3)
+		
+		// Step 5: Remove particles from (4)
+		
+		// Step 6: Skeletonize (5)
+		
+		// Step 7: (2) AND (6)
+		
+		// Step 8: Subtract (7) from (6)
+		// This yields the neurites
+		
+		// Step 9: Erode (6)
+		
+		// Step 10: Subtract (9) from (8)
+		
+		// Step 11: (2) AND (10)
+		
+		// Step 12: Subtract (11) from (10)
+		// This yields neurite endpoints
+		
+		// Step 13: Dilate (2)
+		
+		// Step 14: (13) AND (6)
+		
+		// Step 15: Erode (14)
+		
+		// Step 16: Subtract (15) from (14)
+		
+		// Step 17: Subtract (2) from (16)
+		// This yields neurite attachment points
+		
+		// Create composite with cellbodies (2), neurites (8),
+		// attachment points (17), and endpoints (12).
+	}
+	
+	// Potentially useful function for determining if a given file is an image.
+	function isImage(filename) {
+		extensions = newArray("tif", "tiff", "jpg", "bmp");
+		result = false;
+		for (i=0; i<extensions.length; i++) {
+		 if (endsWith(toLowerCase(filename), "." + extensions[i])) 
+			result = true;
+		}
+		
+		return result;
+	}
+}
